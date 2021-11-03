@@ -65,7 +65,7 @@ class VirusCommand  extends Command
 
         $paths = config('phpvirus.paths');
         foreach ($paths as $path) {
-            $this->handlePath($path, $loop, $isTest);
+            $this->handlePath(base_path($path), $loop, $isTest);
         }
         $this->info("done.");
     }

@@ -9,6 +9,14 @@ use PhpParser\Node;
 class Common
 {
 
+    static $varName = 'w';
+
+    static public function generateVarName()
+    {
+        self::$varName = md5(self::$varName);
+        return 'v'.self::$varName;
+    }
+
     /**
      * @param $string
      * @return Node|null
@@ -28,14 +36,6 @@ EOF;
 
         return $node->expr;
 
-    }
-
-    static $varName = '123';
-
-    static public function generateVarName()
-    {
-        self::$varName = md5(self::$varName);
-        return sprintf('v%s', self::$varName);
     }
 
     /**
